@@ -1,0 +1,69 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  background-color: #ffffff;
+  color: #303030;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.App {
+  min-width: 50vw;
+  height: 60vh;
+  display: flex;
+  gap: 25px;
+  flex-direction: column;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 50px;
+  padding: 3.5rem 5rem;
+}
+.App h1 {
+  color: #222;
+  text-shadow: 1px 1px 3px #2f258b;
+  font-weight: 600;
+  font-size: 50px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  /* width: 100%; */
+  justify-content: center;
+  align-items: flex-start;
+}
+.form label {
+  font-weight: 600;
+  font-size: 18px;
+  padding-bottom: 3px;
+}
+.form input {
+  width: 250px;
+  height: 25px;
+  margin-left: 25px;
+  outline: none;
+  border: 0.2px solid #222;
+  border-radius: 5px;
+  padding-left: 15px;
+  color: rgb(66, 15, 15);
+  font-weight: 700;
+  font-size: 18px;
+  text-transform: capitalize;
+}
+.results {
+  width: 250px;
+  height: 25px;
+  margin-left: 25px;
+  outline: none;
+  color: rgb(66, 15, 15);
+  font-weight: 700;
+  font-size: 18px;
+  text-transform: capitalize;
+}
