@@ -17,9 +17,11 @@ body {
   display: flex;
   gap: 25px;
   flex-direction: column;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
-  border-radius: 50px;
+  box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 40px;
   padding: 3.5rem 5rem;
+  outline: none;
+  border: none;
 }
 .App h1 {
   color: #222;
@@ -31,20 +33,21 @@ body {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
+  width: 100%;
 }
-.form {
+form {
   display: flex;
   flex-direction: column;
   /* width: 100%; */
   justify-content: center;
   align-items: flex-start;
 }
-.form label {
+form label {
   font-weight: 600;
   font-size: 18px;
   padding-bottom: 3px;
 }
-.form input {
+form input {
   width: 250px;
   height: 25px;
   margin-left: 25px;
@@ -57,13 +60,38 @@ body {
   font-size: 18px;
   text-transform: capitalize;
 }
+.button {
+  display: flex;
+  gap: 2rem;
+  margin: 1.5rem 2rem;
+}
+.button button {
+  padding: 10px 20px;
+  color: #ffffff;
+  background-color: #2f258b;
+  border: none;
+}
+.button button:hover {
+  opacity: 0.9;
+}
+.button button:active {
+  box-shadow: inset 0px 2px 8px #757383;
+}
+.button button[type="submit"] {
+  background-color: #222;
+}
 .results {
-  width: 250px;
+  width: 100%;
   height: 25px;
-  margin-left: 25px;
+  margin-top: 20px;
   outline: none;
   color: rgb(66, 15, 15);
   font-weight: 700;
-  font-size: 18px;
+  font-size: 25px;
   text-transform: capitalize;
+}
+.results p span {
+  color: #2f258b;
+  font-weight: 700;
+  /* font-size: 18px; */
 }
