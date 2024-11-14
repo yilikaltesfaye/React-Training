@@ -142,3 +142,13 @@ hr {
 .done-icon:hover {
   color: #6dee69;
 }
+p.completed {
+  background-color: #312880f6;
+  text-decoration: line-through;
+  text-decoration-color: #6dee69;
+  text-decoration-thickness: 4px;
+  color: #eee;
+}
+.completed .done-icon {
+  color: #6dee69;
+}

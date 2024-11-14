@@ -7,6 +7,7 @@ import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 function App() {
   const [todos, setTodos] = useState([]);
   // const [currentTask, setCurrentTask] = useState("");
+  const [completedTodos, setCompletedTodos] = useState([]);
 
   const inputTask = useRef(null);
 
@@ -31,6 +32,14 @@ function App() {
     );
   };
 
+  const toggleCompleteTask = (task) => {
+    if (completedTodos.includes(task)) {
+      setCompletedTodos(completedTodos.filter((t) => t !== task)); // Remove if already completed
+    } else {
+      setCompletedTodos([...completedTodos, task]); // Add to completed if not already
+    }
+  };
+
   return (
     <div className="App">
       <h1>To-Do List</h1>
@@ -46,21 +55,25 @@ function App() {
       </div>
       <hr />
       <div className="todo-list">
-        {todos.map((val, key) => {
-          return (
-            <p key={key}>
-              <span className="value">{val}</span>
-              <span className="icon">
-                <span className="delete-icon" onClick={() => deleteTask(val)}>
-                  <FontAwesomeIcon icon={faTrash} />
-                </span>
-                <span className="done-icon">
-                  <FontAwesomeIcon icon={faThumbsUp} />
-                </span>
+        {todos.map((val, key) => (
+          <p
+            key={key}
+            className={completedTodos.includes(val) ? "completed" : ""}
+          >
+            <span className="value">{val}</span>
+            <span className="icon">
+              <span className="delete-icon" onClick={() => deleteTask(val)}>
+                <FontAwesomeIcon icon={faTrash} />
               </span>
-            </p>
-          );
-        })}
+              <span
+                className="done-icon"
+                onClick={() => toggleCompleteTask(val)}
+              >
+                <FontAwesomeIcon icon={faThumbsUp} />
+              </span>
+            </span>
+          </p>
+        ))}
       </div>
     </div>
   );
