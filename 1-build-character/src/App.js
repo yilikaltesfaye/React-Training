@@ -25,7 +25,7 @@ function App() {
       <h1>Build a Hero</h1>
       <div className="grid">
         <div>
-          <form onSubmit={handleSubmit}>
+          <form method="Post" onSubmit={handleSubmit}>
             <label for="name">Name : </label>
             <input
               type="text"

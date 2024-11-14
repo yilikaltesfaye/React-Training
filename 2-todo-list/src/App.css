@@ -1,0 +1,144 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  background-color: #ffffff;
+  color: #303030;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.App {
+  min-width: 55vw;
+  height: 90vh;
+  display: flex;
+  gap: 25px;
+  flex-direction: column;
+  box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 40px;
+  padding: 3.5rem 5rem;
+  outline: none;
+  border: none;
+}
+.App h1 {
+  color: #222;
+  text-shadow: 1px 1px 3px #2f258b;
+  font-weight: 600;
+  text-align: center;
+  font-size: 50px;
+}
+form {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+form input {
+  width: 250px;
+  height: 35px;
+  outline: 1px solid #33333348;
+  border: none;
+  border-radius: 5px;
+  padding-left: 15px;
+  color: rgb(66, 15, 15);
+  font-weight: 700;
+  font-size: 18px;
+  text-transform: capitalize;
+  display: flex;
+  transition: all 0.5s ease;
+}
+form input:focus {
+  outline-color: #333333cd;
+}
+form button {
+  padding: 10px 30px;
+  color: #ffffff;
+  background-color: #2f258b;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: opacity 0.5s ease;
+}
+form button:hover {
+  opacity: 0.9;
+}
+form button:active {
+  box-shadow: inset 0px 2px 8px #757383;
+}
+hr {
+  border: 2px solid #181345;
+  border-radius: 5px;
+}
+.todo-list {
+  width: 100%;
+  margin-top: 10px;
+  outline: none;
+  color: rgb(66, 15, 15);
+  font-weight: 700;
+  text-transform: capitalize;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  overflow-y: scroll;
+}
+.todo-list::-webkit-scrollbar {
+  padding-left: 5px;
+  width: 8px; /* Width of the scrollbar */
+  height: 8px; /* Height of the scrollbar for horizontal scroll */
+}
+
+/* Customizes the scrollbar track (background) */
+.todo-list::-webkit-scrollbar-track {
+  background: #2f258b4b; /* Light gray background for the track */
+  border-radius: 5px; /* Optional: rounded corners for the track */
+}
+
+/* Customizes the scrollbar thumb (the draggable part) */
+.todo-list::-webkit-scrollbar-thumb {
+  background-color: #2f258b;
+  border-radius: 5px;
+  border: 2px solid #f0f0f0;
+}
+
+/* Customizes the scrollbar thumb on hover */
+.todo-list::-webkit-scrollbar-thumb:hover {
+  background-color: #2f258bd0; /* Darker shade when hovering */
+}
+.todo-list p {
+  display: flex;
+  width: 95%;
+  gap: 50px;
+  padding-left: 25px;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 15px;
+  color: #111010;
+  min-height: 40px;
+  font-size: 23px;
+  background-color: #312880b9;
+  font-family: monospace;
+  font-weight: 700;
+  border-radius: 5px;
+}
+.icon {
+  color: #111010;
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+}
+.delete-icon {
+  cursor: pointer;
+}
+.delete-icon:hover {
+  opacity: 0.9;
+}
+.done-icon {
+  cursor: pointer;
+  color: #ffffff;
+  transition: color 0.5s ease;
+}
+.done-icon:hover {
+  color: #6dee69;
+}
