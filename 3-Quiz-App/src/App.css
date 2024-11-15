@@ -85,28 +85,68 @@ form input,
 .button:active {
   box-shadow: inset 0px 2px 8px #757383;
 }
+.button:focus {
+  box-shadow: inset 0px 2px 8px #524899;
+  border: 2px solid #1e1b3a; /* Change to your desired color */
+  background-color: #5f5986; /* Optional: change background on click */
+}
 .Play {
-  background-color: rgba(17, 25, 40, 0.75);
-  width: 80%;
-  height: 90%;
-  border-radius: 40px;
   display: flex;
-  gap: 80px;
+  gap: 60px;
   align-items: center;
   flex-direction: column;
   justify-content: center;
 }
 .Play p {
-  width: 80%;
-  font-size: 22px;
+  width: 33vw;
+  font-size: 1.5vw;
   letter-spacing: 1px;
   text-align: center;
   font-weight: 500;
-  text-transform: capitalize;
   text-wrap: wrap;
+  text-transform: capitalize;
 }
 .Questions {
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+.endscreen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+.endscreen p {
+  text-transform: capitalize;
+  width: 80%;
+  font-size: 2vw;
+  letter-spacing: 1px;
+  text-align: center;
+  font-weight: 500;
+  text-wrap: wrap;
+}
+.endscreen p span {
+  font-weight: 600;
+  color: #030303;
+  text-shadow: 1px 1px 15px #ffffff;
+}
+.fail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+.fail p {
+  text-shadow: 1px 1px 15px #ffffff;
+}
+.fail button,
+.fail p {
+  font-weight: 700;
+  color: #740303;
+}
+.fail button {
+  outline: 3px solid #740303;
 }

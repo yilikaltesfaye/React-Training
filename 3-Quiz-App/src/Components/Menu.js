@@ -1,8 +1,7 @@
 import { useContext, useState } from "react";
 import { GameStateContext } from "../Helpers/Context";
 function Menu() {
-  const { gameState, setGameState, userName, setUserName } =
-    useContext(GameStateContext);
+  const { setGameState, setUserName } = useContext(GameStateContext);
   const [nameInput, setNameInput] = useState(""); // State for input field value
 
   const submitHandle = (event) => {
