@@ -1,9 +1,10 @@
 import "./App.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   const [gameTitle, setGameTitle] = useState("");
   const [searchedGames, setSearchedGames] = useState([]);
+  const [gameDeals, setGameDeals] = useState([]);
   const [hasSearched, setHasSearched] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -23,7 +24,19 @@ function App() {
         setIsLoading(false);
       });
   };
-  console.log(gameTitle);
+  useEffect(() => {
+    fetch(
+      `https://www.cheapshark.com/api/1.0/deals?storeID=1&upperPrice=30&pageSize=5`
+    )
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        setGameDeals(data);
+      });
+  }, []);
+  console.log(gameDeals);
+  // console.log(gameTitle);
   return (
     <div className="App">
       <div className="searchSection">
@@ -60,6 +73,21 @@ function App() {
       </div>
       <div className="dealSection">
         <h1>Latest Deals</h1>
+        <div className="games">
+          {gameDeals.map((game, key) => {
+            return (
+              <div className="game" key={key}>
+                <img src={game.thumb} alt={game.internalname + " png"} />
+                <p>{game.title}</p>
+                <p id="price">Deal: ${game.salePrice}</p>
+                <p>Normal Price: ${game.normalPrice}</p>
+                <p>
+                  You Save <span id="notprice">{parseInt(game.savings)}%</span>
+                </p>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
