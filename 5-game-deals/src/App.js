@@ -1,10 +1,12 @@
 import "./App.css";
 import { useEffect, useState } from "react";
+import useSWR from "swr";
+
+const fetcher = (...args) => fetch(...args).then((response) => response.json());
 
 function App() {
   const [gameTitle, setGameTitle] = useState("");
   const [searchedGames, setSearchedGames] = useState([]);
-  const [gameDeals, setGameDeals] = useState([]);
   const [hasSearched, setHasSearched] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -14,6 +16,11 @@ function App() {
     setIsLoading(true);
     searchGames(gameTitle);
   };
+
+  const { data, error } = useSWR(
+    "https://www.cheapshark.com/api/1.0/deals?storeID=1&upperPrice=30&pageSize=5",
+    fetcher
+  );
   const searchGames = (title) => {
     fetch(`https://www.cheapshark.com/api/1.0/games?title=${title}&limit=8`)
       .then((response) => {
@@ -24,18 +31,8 @@ function App() {
         setIsLoading(false);
       });
   };
-  useEffect(() => {
-    fetch(
-      `https://www.cheapshark.com/api/1.0/deals?storeID=1&upperPrice=30&pageSize=5`
-    )
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        setGameDeals(data);
-      });
-  }, []);
-  console.log(gameDeals);
+
+  console.log(data);
   // console.log(gameTitle);
   return (
     <div className="App">
@@ -74,19 +71,21 @@ function App() {
       <div className="dealSection">
         <h1>Latest Deals</h1>
         <div className="games">
-          {gameDeals.map((game, key) => {
-            return (
-              <div className="game" key={key}>
-                <img src={game.thumb} alt={game.internalname + " png"} />
-                <p>{game.title}</p>
-                <p id="price">Deal: ${game.salePrice}</p>
-                <p>Normal Price: ${game.normalPrice}</p>
-                <p>
-                  You Save <span id="notprice">{parseInt(game.savings)}%</span>
-                </p>
-              </div>
-            );
-          })}
+          {data &&
+            data.map((game, key) => {
+              return (
+                <div className="game" key={key}>
+                  <img src={game.thumb} alt={game.internalname + " png"} />
+                  <p>{game.title}</p>
+                  <p id="price">Deal: ${game.salePrice}</p>
+                  <p>Normal Price: ${game.normalPrice}</p>
+                  <p>
+                    You Save{" "}
+                    <span id="notprice">{parseInt(game.savings)}%</span>
+                  </p>
+                </div>
+              );
+            })}
         </div>
       </div>
     </div>
