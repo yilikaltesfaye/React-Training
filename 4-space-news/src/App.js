@@ -28,7 +28,7 @@ function App() {
             <div
               className="news"
               key={key}
-              onClick={() => {
+              onDoubleClick={() => {
                 window.open(val.url);
               }}
             >
