@@ -1,5 +1,5 @@
 import "./App.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import useSWR from "swr";
 
 const fetcher = (...args) => fetch(...args).then((response) => response.json());
@@ -17,7 +17,7 @@ function App() {
     searchGames(gameTitle);
   };
 
-  const { data, error } = useSWR(
+  const { data } = useSWR(
     "https://www.cheapshark.com/api/1.0/deals?storeID=1&upperPrice=30&pageSize=5",
     fetcher
   );
