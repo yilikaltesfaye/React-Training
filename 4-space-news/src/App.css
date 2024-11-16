@@ -65,7 +65,8 @@ body {
   font-size: 22px;
 }
 .news h5 {
-  color: #ffffff;
+  color: #850000;
+  font-weight: 700;
   padding-bottom: 10px;
 }
 .news img {
